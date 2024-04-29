@@ -288,6 +288,7 @@ console.log(Number.isFinite(+'20X'));
 console.log(Number.isFinite(23 / 0));
 */
 
+/*
 /////////////////////////
 // 172. Math and rounding
 // Square - cuadrado
@@ -341,3 +342,34 @@ console.log((2.7).toFixed(0));
 console.log((2.7).toFixed(3));
 console.log((2.345).toFixed(2));
 console.log(+(2.345).toFixed(2));
+*/
+
+/*
+// 173. Remainder Operator
+// USE CASES when we want something to have an effect according to its remainder. Example if want the background color to change if the element is even or odd
+console.log(5 % 2);
+console.log(5 / 2); // 5 = 2 * 2 + 1
+
+console.log(8 % 2);
+console.log(8 / 2); // 8 = 2 * 3 + 2
+
+console.log(6 % 2);
+console.log(6 / 2);
+
+console.log(7 % 2);
+console.log(7 / 2);
+
+const isEven = (n) => n % 2 === 0;
+console.log(isEven(2));
+console.log(isEven(5));
+console.log(isEven(6));
+console.log(isEven(15));
+
+*/
+// Here we are transforming the node list into an array and spreading all its elements inside the array
+labelBalance.addEventListener('click', function () {
+  [...document.querySelectorAll('.movements__row')].forEach(function (row, i) {
+    if (i % 2 === 0) row.style.backgroundColor = 'orangered';
+    if (i % 3 === 0) row.style.backgroundColor = 'blue';
+  });
+});
