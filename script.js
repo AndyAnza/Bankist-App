@@ -397,6 +397,7 @@ console.log(Number('230_000'));
 console.log(parseInt('230_000'));
 */
 
+/*
 // 175. Working with BigInt
 // Primitive data type added in ES2020 - special type of integers.
 // RULES:
@@ -435,3 +436,47 @@ console.log(huge + ' is REALLY big!!');
 // Divisions
 console.log(11n / 3n);
 console.log(10 / 3);
+*/
+
+// 176. Creating dates
+// Notes:
+// - Dates have autocorrect
+// - There are different ways to create dates but you should avoid writing them manually
+// - Months are 0 based - Example 10 = Nov instead of 11
+
+// Create a date
+const now = new Date();
+console.log(now);
+
+console.log(new Date('Apr 29 2024 16:43:04'));
+console.log(new Date('December 24, 2015'));
+console.log(new Date(account1.movementsDates[0]));
+
+console.log(new Date(2037, 10, 19, 15, 23, 5));
+console.log(new Date(2037, 10, 31));
+
+console.log(new Date(0));
+console.log(new Date(3 * 24 * 60 * 60 * 1000));
+
+// Working with dates
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDate());
+console.log(future.getDay());
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString()); //2037-11-19T21:23:00.000Z
+// Timestamps in JavaScript
+// A timestamp typically refers to a numeric value representing the number of milliseconds elapsed since the Unix Epoch. The Unix Epoch is defined as midnight UTC on January 1, 1970. This timestamp is often used to represent dates and times in JavaScript, as it provides a standardized way to measure time across different systems and platforms.
+console.log(future.getTime()); //this is how you get a timestamp
+//  Timestamp to date
+console.log(new Date(2142278580000));
+
+console.log(Date.now()); //this is how you get todays timestamp
+
+// you can modify the date using the set methods, there are more than this one
+future.setFullYear(2024);
+console.log(future);
