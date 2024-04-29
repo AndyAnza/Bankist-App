@@ -374,6 +374,7 @@ labelBalance.addEventListener('click', function () {
   });
 });
 
+/*
 // 174. Numeric Separators
 // Introduced in ES2021 to help developers to add meaning to numbers without affecting its execution in javascript, which makes it easier to read and understand.
 // Numeric Separators are underscores added ONLY in between numbers to add meaning.
@@ -394,3 +395,43 @@ console.log(PI);
 console.log(Number('230_000'));
 // here it will give us a bug turning the number into 230
 console.log(parseInt('230_000'));
+*/
+
+// 175. Working with BigInt
+// Primitive data type added in ES2020 - special type of integers.
+// RULES:
+// 1. Declaration: To declare a BigInt, append an "n" to the end of an integer literal or convert a numeric string to a BigInt using the BigInt() constructor.
+// 2.Arithmetic Operations: You can perform arithmetic operations such as addition, subtraction, multiplication, division, and modulo on BigInt values just like with regular numbers.
+// 3. Comparison: BigInt values can be compared using standard comparison operators (<, >, <=, >=, ==, ===, !=, !==).
+// 4. Mixing Types: Operations between BigInt and other numeric types (e.g., Number) are not allowed without explicit conversion.
+// 5. Type Conversion: You can convert BigInt to other numeric types using the Number() or parseInt() functions.
+// 6.Limitations: BigInt cannot be used with certain built-in mathematical functions or methods that only accept regular numbers, for example Math.sqrt()
+
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(2 ** 53 + 1);
+console.log(2 ** 53 + 2);
+console.log(2 ** 53 + 3);
+console.log(2 ** 53 + 4);
+
+console.log(6543654784876487487674576547654634554254325n);
+console.log(BigInt(4321765543n));
+
+// Operations
+console.log(5432677564n + 543254325n);
+console.log(5432543254326776546543656632n * 10000000000n);
+
+const huge = 534264536587682432423423n;
+const num = 23;
+console.log(huge * BigInt(num));
+
+console.log(20n > 15);
+console.log(20n === 20);
+console.log(typeof 20n);
+console.log(20n == '20');
+
+console.log(huge + ' is REALLY big!!');
+
+// Divisions
+console.log(11n / 3n);
+console.log(10 / 3);
