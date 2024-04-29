@@ -373,3 +373,24 @@ labelBalance.addEventListener('click', function () {
     if (i % 3 === 0) row.style.backgroundColor = 'blue';
   });
 });
+
+// 174. Numeric Separators
+// Introduced in ES2021 to help developers to add meaning to numbers without affecting its execution in javascript, which makes it easier to read and understand.
+// Numeric Separators are underscores added ONLY in between numbers to add meaning.
+
+const diameter = 287_460_000_000;
+console.log(diameter);
+
+const price = 345_99;
+console.log(price);
+
+const transferFee1 = 15_00;
+const transferFee2 = 1_500;
+
+const PI = 3.1415;
+console.log(PI);
+
+// this wont work since our original value is a string
+console.log(Number('230_000'));
+// here it will give us a bug turning the number into 230
+console.log(parseInt('230_000'));
