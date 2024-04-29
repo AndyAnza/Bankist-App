@@ -254,3 +254,33 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
+
+// Base 10 - 0 to 9. 1/10 = 0.1   3/10 = 3.33333333
+// Base 2 - 0 1
+console.log(0.1 + 0.2);
+console.log(0.1 + 0.2 === 0.3);
+
+//  Turn a string into a number
+console.log(Number('23'));
+console.log(+'23');
+
+// Parsing
+// parseInt: Transforms strings that start with numbers and then letter into a integer. It won't work if the string starts with a letter.
+console.log(Number.parseInt('30px', 10));
+// This wont work
+console.log(Number.parseInt('e23', 10));
+console.log(Number.parseInt('2.5rem'));
+// parseFloat: same as parseInt but the number will remain a float
+console.log(Number.parseFloat('2.5rem'));
+
+// Check if value is NaN - NOT RECOMMENDED
+console.log(Number.isNaN(23));
+console.log(Number.isNaN('23'));
+console.log(Number.isNaN(+'20X'));
+console.log(Number.isNaN(23 / 0));
+
+//Check if value is number - RECOMMENDED✅
+console.log(Number.isFinite(20));
+console.log(Number.isFinite('20'));
+console.log(Number.isFinite(+'20X'));
+console.log(Number.isFinite(23 / 0));
