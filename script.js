@@ -282,14 +282,16 @@ btnLoan.addEventListener('click', function (e) {
     amount > 0 &&
     currentAccount.movements.some((mov) => mov >= amount * 0.1)
   ) {
-    // Add movement
-    currentAccount.movements.push(amount);
+    setTimeout(function () {
+      // Add movement
+      currentAccount.movements.push(amount);
 
-    // Add loan date
-    currentAccount.movementsDates.push(new Date().toISOString());
+      // Add loan date
+      currentAccount.movementsDates.push(new Date().toISOString());
 
-    // Update UI
-    updateUI(currentAccount);
+      // Update UI
+      updateUI(currentAccount);
+    }, 3000);
   }
   inputLoanAmount.value = '';
 });
@@ -578,3 +580,25 @@ const options = {
 };
 console.log(new Intl.NumberFormat('en-US', options).format(num));
 */
+
+// 181. setTimeout and setInterval
+
+// setTimeout: only calls the callback function once
+const ingredientes = ['olives', 'pepperoni'];
+const pizzaTimer = setTimeout(
+  (ing1, ing2) => {
+    console.log(`Order a pizza with ${ing1} and ${ing2} 🍕`);
+  },
+  3000,
+  ...ingredientes
+);
+// Note: we can add more arguments after adding them after the miliseconds and use them as parameters
+// we can use an if statement to stop the timer from being executed
+if (ingredientes.includes('spinach')) clearTimeout(pizzaTimer);
+console.log('waiting');
+
+// setInterval: keeps on calling the callback function over and over again
+setInterval(function () {
+  const now = new Date();
+  console.log(now);
+}, 3000);
