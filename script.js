@@ -185,9 +185,33 @@ const updateUI = function (acc) {
   calcDisplaySummary(acc);
 };
 
+const startLogOutTimer = function () {
+  const tick = () => {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(Math.trunc(time % 60)).padStart(2, 0);
+    // In each call, print the remaining time to UI
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+    labelTimer.innerText = `${min}:${sec}`;
+    // When 0 seconds, stop timer and log out user
+    if (time === 0) {
+      containerApp.style.opacity = 0;
+      clearInterval(timer);
+    }
+    // Decrease 1 sec
+    --time;
+  };
+  // Set time to 2 minutes
+  let time = 120;
+  // call the timer every second
+  tick();
+  const timer = setInterval(tick, 1000);
+  return timer;
+};
 ///////////////////////////////////////
 // Event handlers
-let currentAccount;
+let currentAccount, timer;
 
 // FAKE ALWAYS LOGGED IN
 // currentAccount = account1;
@@ -241,6 +265,10 @@ btnLogin.addEventListener('click', function (e) {
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
 
+    // individual timers for each account
+    if (timer) clearInterval(timer);
+    timer = startLogOutTimer();
+
     // Update UI
     updateUI(currentAccount);
   }
@@ -270,6 +298,10 @@ btnTransfer.addEventListener('click', function (e) {
 
     // Update UI
     updateUI(currentAccount);
+
+    // Reset timer
+    clearInterval(timer);
+    timer = startLogOutTimer();
   }
 });
 
@@ -292,6 +324,10 @@ btnLoan.addEventListener('click', function (e) {
       // Update UI
       updateUI(currentAccount);
     }, 3000);
+
+    // Reset timer
+    clearInterval(timer);
+    timer = startLogOutTimer();
   }
   inputLoanAmount.value = '';
 });
@@ -581,6 +617,7 @@ const options = {
 console.log(new Intl.NumberFormat('en-US', options).format(num));
 */
 
+/*
 // 181. setTimeout and setInterval
 
 // setTimeout: only calls the callback function once
@@ -602,3 +639,4 @@ setInterval(function () {
   const now = new Date();
   console.log(now);
 }, 3000);
+*/
